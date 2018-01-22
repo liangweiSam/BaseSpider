@@ -54,3 +54,21 @@ class urlManager(object):
 			return
 		for url in urls:
 			add_new_url(url)
+
+	def save_progress(self, path, data):
+
+		with open(path, 'wb') as f:
+			pickle.dump(data, f)
+
+
+	def load_progress(self, path):
+
+		print('[+] 从文件加载进度：%s' %path)
+		try:
+			with open(path, 'rb') as f:
+				tmp = pickle.load(f)
+				return tmp
+		except:
+			print('[!] 无进度文件， 创建：%s' %path)
+		# 这一块是当有异常时会执行，except，并且执行return set()
+		return set()
