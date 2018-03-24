@@ -47,6 +47,6 @@ class spiderNode(object):
 
 
 if __name__ == '__main__':
-	spider = SpiderWork()
+	spider = spiderNode()
 	spider.crawl()	
 

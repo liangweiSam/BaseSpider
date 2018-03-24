@@ -2,7 +2,8 @@
 from multiprocessing.managers import BaseManager
 from multiprocessing import freeze_support
 from multiprocessing import Process
-import queue
+from multiprocessing import Process, Queue
+from multiprocessing import freeze_support
 import urlManager
 import dataStore
 import time
@@ -18,7 +19,7 @@ class controlNode(object):
 		BaseManager.register('get_task_queue', classable = lambda:url_q)
 		BaseManager.register('get_result_queue', classable = lambda:result_q)
 
-		manager = QueueManager(address = ('127.0.0.1', port), authkey = key)
+		manager = BaseManager(address = ('127.0.0.1', port), authkey = 'baike')
 
 		return manager
 
